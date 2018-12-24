@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "668280527898",
+    "firebase_url": "https://edapt-c3951.firebaseio.com",
+    "project_id": "edapt-c3951",
+    "storage_bucket": "edapt-c3951.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668280527898:android:959c01deda8ef963",
+        "android_client_info": {
+          "package_name": "com.example.edapt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668280527898-64cooobp71h2rqq4jjnoqmqtu3j2ru8a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX6uT_g4e9kwF6bhCyMpFDyucMfUXH8YA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
