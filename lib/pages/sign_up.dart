@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final List<DropdownMenuItem> _samples = [];
     return Container(
       child: Scaffold(
         appBar: AppBar(),
@@ -76,7 +75,10 @@ class SignUpScreen extends StatelessWidget {
                   OutlineButton(
                     child: Text('SKIP'),
 
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      Navigator.of(context).pushReplacementNamed('/homepage');
+                    },
                   ),
                   RaisedButton(
                     child: Text('SAVE', style: TextStyle(color: Colors.white),),
