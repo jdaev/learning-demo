@@ -5,6 +5,7 @@ import 'package:edapt/pages/login.dart';
 import 'package:edapt/pages/sign_up.dart';
 import 'package:edapt/pages/otp_screen.dart';
 import 'package:edapt/pages/tuition.dart';
+import 'package:edapt/pages/tution_topic_video_screen.dart';
 
 void main() => runApp(MyApp());
 

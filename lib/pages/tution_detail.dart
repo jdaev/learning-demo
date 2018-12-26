@@ -1,4 +1,5 @@
 import 'package:edapt/pages/custom_widgets/tution_button.dart';
+import 'package:edapt/pages/test_choice_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:edapt/tuition_detail_icons.dart';
 
@@ -58,7 +59,7 @@ class _TuitionDetailState extends State<TuitionDetail> {
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (BuildContext context, int index) =>
-                    EntryItem(data[index]),
+                    EntryItem(data[index], context),
                 itemCount: data.length,
               )
             ],
@@ -81,39 +82,51 @@ const List<Entry> data = <Entry>[
     'Chapter A',
     <Entry>[
       Entry(
-        'Section A0',
-        <Entry>[
-          Entry('Item A0.1'),
-          Entry('Item A0.2'),
-        ],
+        'Subtopic 1',
       ),
-      Entry('Section A1'),
-      Entry('Section A2'),
+      Entry('Subtopic 2'),
+      Entry('Subtopic 3'),
+      Entry('Test'),
     ],
   ),
   Entry(
     'Chapter B',
     <Entry>[
-      Entry('Section B0'),
-      Entry('Section B1'),
+      Entry('Subtopic 1'),
+      Entry('Subtopic 3'),
     ],
   ),
 ];
 
 class EntryItem extends StatelessWidget {
-  const EntryItem(this.entry);
-
+  const EntryItem(this.entry, this.context);
+  final BuildContext context;
   final Entry entry;
 
   Widget _buildTiles(Entry root) {
-    if (root.children.isEmpty) return Padding(
-      padding: const EdgeInsets.fromLTRB(16,0,16,0),
-      child: ListTile(title: Text(root.title)),
-    );
+    if (root.children.isEmpty)
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+        child: InkWell(
+          child: ListTile(title: Text(root.title)),
+          onTap: () {
+            
+            if (root.title == 'Test') {
+             Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => TestChoiceScreen(
+                      
+                    ),
+              ),
+            ); 
+            }
+          },
+        ),
+      );
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
       child: ExpansionTile(
-        
         key: PageStorageKey<Entry>(root),
         title: Text(root.title),
         children: root.children.map(_buildTiles).toList(),

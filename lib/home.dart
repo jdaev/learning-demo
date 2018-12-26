@@ -35,31 +35,44 @@ class _HomeState extends State<Home> {
           bottomNavigationBar: BottomNavigationBar(
               onTap: onTabTapped,
               currentIndex: _currentIndex,
+
               
               items: [
                 BottomNavigationBarItem(
-                  icon: new Icon(
+                  activeIcon: Icon(
                     Icons.home,
                     color: Colors.blue[700],
+                  
                   ),
                   title: Text(
                     'Home',
                     style: TextStyle(color: Colors.blue[700]),
                   ),
-                ),
+                  icon: new Icon(
+                    Icons.home,
+                    color: Color(0x8A000000),
+                ),),
                 BottomNavigationBarItem(
-                    icon: new Icon(
+                    activeIcon: new Icon(
                       Icons.play_arrow,
                       color: Colors.blue[700],
+                    ),
+                    icon: new Icon(
+                      Icons.play_arrow,
+                      color: Color(0x8A000000),
                     ),
                     title: Text(
                       'Paused',
                       style: TextStyle(color: Colors.blue[700]),
                     )),
                 BottomNavigationBarItem(
-                  icon: new Icon(
+                  activeIcon: new Icon(
                     Icons.subscriptions,
                     color: Colors.blue[700],
+                  ),
+                  icon: new Icon(
+                    Icons.subscriptions,
+                    color: Color(0x8A000000),
                   ),
                   title: Text(
                     'Library',
@@ -67,18 +80,26 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 BottomNavigationBarItem(
-                    icon: new Icon(
+                    activeIcon: new Icon(
                       Icons.notifications,
                       color: Colors.blue[700],
+                    ),
+                    icon: new Icon(
+                      Icons.notifications,
+                      color: Color(0x8A000000),
                     ),
                     title: Text(
                       'Notifications',
                       style: TextStyle(color: Colors.blue[700]),
                     )),
                 BottomNavigationBarItem(
-                    icon: new Icon(
+                    activeIcon: new Icon(
                       Icons.account_circle,
                       color: Colors.blue[700],
+                    ),
+                    icon: new Icon(
+                      Icons.account_circle,
+                      color: Color(0x8A000000),
                     ),
                     title: Text(
                       'Account',
