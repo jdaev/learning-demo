@@ -1,8 +1,11 @@
+import 'package:edapt/pages/tuition.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'package:edapt/pages/login.dart';
 import 'package:edapt/pages/sign_up.dart';
 import 'package:edapt/pages/otp_screen.dart';
+import 'package:edapt/pages/tuition.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -15,11 +18,12 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: Home(),
       routes: <String, WidgetBuilder> {
         '/homepage': (BuildContext context) => Home(),
         '/loginpage': (BuildContext context) => LoginScreen(),
         '/signup_page': (BuildContext context) => SignUpScreen(),
+        '/tuition_page': (BuildContext context) => TuitionScreen(),
       },
     );
   }
