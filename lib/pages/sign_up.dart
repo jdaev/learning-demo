@@ -82,7 +82,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   RaisedButton(
                     child: Text('SAVE', style: TextStyle(color: Colors.white),),
-                    color: Colors.blue,
+                    color: Color(0xFF2C6DFD),
                     onPressed: () {},
                   )
                   ],

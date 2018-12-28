@@ -19,6 +19,7 @@ dependencies:
   google_sign_in: ^3.2.4
   firebase_auth: ^0.6.6
   flutube: ^0.5.1
+  flutter_calendar_carousel: ^1.3.4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -46,6 +47,19 @@ flutter:
     - assets/page1.png
     - assets/page2.png
     - assets/page3.png
+    - assets/EmergingCareer.png
+    - assets/ExistingCareers.png
+    - assets/dummyImage1.jpg
+    - assets/dummyImage2.jpg
+    - assets/dummyImage3.jpg
+    - assets/dummyImage4.jpg
+    - assets/dummyImage5.jpg
+    - assets/dummyImage6.jpg
+    - assets/dummyImage7.jpg
+    - assets/dummyImage8.jpg
+    - assets/dummyImage9.jpg
+    - assets/dummyImage10.jpg
+    - assets/dummyImage11.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
@@ -74,6 +88,15 @@ flutter:
   # see https://flutter.io/custom-fonts/#from-packages
 
   fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf
+    - family: BrushScript
+      fonts:
+        - asset: fonts/BrushScriptStd.otf
+    - family: FiraGO
+      fonts:
+        - asset: fonts/FiraGO-Regular.otf
     - family:  MyFlutterApp
       fonts:
         - asset: fonts/MyFlutterApp.ttf
@@ -82,4 +105,5 @@ flutter:
         - asset: fonts/TuitionDetailIcons.ttf
     - family:  TestIcons
       fonts:
-        - asset: fonts/TestIcons.ttf
+        - asset: fonts/TestIcons.ttf    
+    

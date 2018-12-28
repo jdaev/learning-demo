@@ -94,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
       resizeToAvoidBottomPadding: true,
           body: Container(
         decoration: new BoxDecoration(
-          color: Colors.blue
+          color: Color(0xFF2C6DFD)
         ),
           child: Column(
         children: <Widget>[
@@ -136,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Text(
                                   'Create an Account',
                                   style:
-                                      TextStyle(color: Colors.blue, fontSize: 18),
+                                      TextStyle(color: Color(0xFF2C6DFD), fontSize: 18),
                                 ),
                               ],
                             ),
@@ -161,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     child: Icon(
                       Icons.arrow_forward,
-                      color: Colors.blue,
+                      color: Color(0xFF2C6DFD),
                     ),
                   ),
                 ),

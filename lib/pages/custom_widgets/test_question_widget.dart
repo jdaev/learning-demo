@@ -193,9 +193,9 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Text('Solution',style: TextStyle(color: Colors.blue),),
+                                  Text('Solution',style: TextStyle(color: Color(0xFF2C6DFD)),),
                                   IconButton(
-                                    icon: Icon(Icons.arrow_downward, color: Colors.blue,),
+                                    icon: Icon(Icons.expand_more, color: Color(0xFF2C6DFD),),
                                     onPressed: () {
                                       if (this._bodyHeight == 0.0) {
                                         setState(() {
@@ -229,11 +229,11 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
                                     children: <Widget>[
                                       Row(
                                         children: <Widget>[
-                                          Text(widget.correctAnswer + '.', style: TextStyle(color: Colors.blue),),
+                                          Text(widget.correctAnswer + '.', style: TextStyle(color: Color(0xFF2C6DFD)),),
                                           SizedBox(
                                             width: 16,
                                           ),
-                                          Text(_returnCorrectAnswer(),style: TextStyle(color: Colors.blue),)
+                                          Text(_returnCorrectAnswer(),style: TextStyle(color: Color(0xFF2C6DFD)),)
                                         ],
                                       ),
                                       SizedBox(

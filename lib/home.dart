@@ -1,3 +1,4 @@
+import 'package:edapt/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:edapt/pages/home_screen.dart';
 import 'package:edapt/pages/account.dart';
@@ -17,7 +18,7 @@ class _HomeState extends State<Home> {
     PausedScreen(),
     LibraryScreen(),
     NotificationsScreen(),
-    AccountScreen(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -41,12 +42,12 @@ class _HomeState extends State<Home> {
                 BottomNavigationBarItem(
                   activeIcon: Icon(
                     Icons.home,
-                    color: Colors.blue[700],
+                    color: Color(0xFF2C6DFD),
                   
                   ),
                   title: Text(
                     'Home',
-                    style: TextStyle(color: Colors.blue[700]),
+                    style: TextStyle(color: Color(0xFF2C6DFD)),
                   ),
                   icon: new Icon(
                     Icons.home,
@@ -55,7 +56,7 @@ class _HomeState extends State<Home> {
                 BottomNavigationBarItem(
                     activeIcon: new Icon(
                       Icons.play_arrow,
-                      color: Colors.blue[700],
+                      color: Color(0xFF2C6DFD),
                     ),
                     icon: new Icon(
                       Icons.play_arrow,
@@ -63,12 +64,12 @@ class _HomeState extends State<Home> {
                     ),
                     title: Text(
                       'Paused',
-                      style: TextStyle(color: Colors.blue[700]),
+                      style: TextStyle(color: Color(0xFF2C6DFD)),
                     )),
                 BottomNavigationBarItem(
                   activeIcon: new Icon(
                     Icons.subscriptions,
-                    color: Colors.blue[700],
+                    color: Color(0xFF2C6DFD),
                   ),
                   icon: new Icon(
                     Icons.subscriptions,
@@ -76,13 +77,13 @@ class _HomeState extends State<Home> {
                   ),
                   title: Text(
                     'Library',
-                    style: TextStyle(color: Colors.blue[700]),
+                    style: TextStyle(color: Color(0xFF2C6DFD)),
                   ),
                 ),
                 BottomNavigationBarItem(
                     activeIcon: new Icon(
                       Icons.notifications,
-                      color: Colors.blue[700],
+                      color: Color(0xFF2C6DFD),
                     ),
                     icon: new Icon(
                       Icons.notifications,
@@ -90,12 +91,12 @@ class _HomeState extends State<Home> {
                     ),
                     title: Text(
                       'Notifications',
-                      style: TextStyle(color: Colors.blue[700]),
+                      style: TextStyle(color: Color(0xFF2C6DFD)),
                     )),
                 BottomNavigationBarItem(
                     activeIcon: new Icon(
                       Icons.account_circle,
-                      color: Colors.blue[700],
+                      color: Color(0xFF2C6DFD),
                     ),
                     icon: new Icon(
                       Icons.account_circle,
@@ -103,7 +104,7 @@ class _HomeState extends State<Home> {
                     ),
                     title: Text(
                       'Account',
-                      style: TextStyle(color: Colors.blue[700]),
+                      style: TextStyle(color: Color(0xFF2C6DFD)),
                     ))
               ]),
         ),

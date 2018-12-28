@@ -19,14 +19,14 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.0),
                   image: const DecorationImage(
                     fit: BoxFit.fitWidth,
-                    image: const AssetImage('assets/page1.png'),
+                    image: const AssetImage('assets/dummyImage4.jpg'),
                   ),
                 ),
                 child: Center(
                   child: Text(
-                    'This is Page 1',
+                    'lorem ipsum',
                     style: TextStyle(
-                        fontStyle: FontStyle.italic,
+                        fontFamily: 'Brushscript',
                         fontSize: 32,
                         color: Colors.black,
                         shadows: [
@@ -63,14 +63,14 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.0),
                   image: const DecorationImage(
                     fit: BoxFit.fitWidth,
-                    image: const AssetImage('assets/page2.png'),
+                    image: const AssetImage('assets/dummyImage2.jpg'),
                   ),
                 ),
                 child: Center(
                   child: Text(
-                    'This is Page 2',
+                    'wringardium leviosa',
                     style: TextStyle(
-                        fontStyle: FontStyle.italic,
+                        fontFamily: 'Brushscript',
                         fontSize: 32,
                         color: Colors.black,
                         shadows: [
@@ -107,14 +107,14 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.0),
                   image: const DecorationImage(
                     fit: BoxFit.fitWidth,
-                    image: const AssetImage('assets/page3.png'),
+                    image: const AssetImage('assets/dummyImage3.jpg'),
                   ),
                 ),
                 child: Center(
                   child: Text(
-                    'This is Page 3',
+                    'felis catis',
                     style: TextStyle(
-                        fontStyle: FontStyle.italic,
+                        fontFamily: 'Brushscript',
                         fontSize: 32,
                         color: Colors.black,
                         shadows: [
@@ -186,6 +186,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 new RoundButton(
                   label: 'Calender',
+                  route: '/calendar',
                 ),
                 new RoundButton(
                   label: 'Tuition',
@@ -196,12 +197,15 @@ class HomeScreen extends StatelessWidget {
                 ),
                 new RoundButton(
                   label: 'Skills for Future',
+                  route: '/skills_for_future',
                 ),
                 new RoundButton(
                   label: 'Career Cart',
+                  route: '/career_cart',
                 ),
                 new RoundButton(
                   label: 'DIY Store',
+                  route: '/diy_store',
                 ),
                 new RoundButton(
                   label: 'Doubt Destroyer',
@@ -248,7 +252,7 @@ class RoundButton extends StatelessWidget {
           child: new Center(
             child: new Text(
               label,
-              style: new TextStyle(color: Colors.blue, fontSize: 16.1),
+              style: new TextStyle(color: Color(0xFF2C6DFD), fontSize: 16.1),
             ),
           ),
         ),

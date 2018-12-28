@@ -1,3 +1,7 @@
+import 'package:edapt/pages/calendar_screen.dart';
+import 'package:edapt/pages/career_cart_screen.dart';
+import 'package:edapt/pages/diy_store.dart';
+import 'package:edapt/pages/skills_for_future.dart';
 import 'package:edapt/pages/tuition.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
@@ -18,6 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Montserrat',
         primarySwatch: Colors.blue,
+        primaryColor: Color(0xFF2C6DFD),
       ),
       home: Home(),
       routes: <String, WidgetBuilder> {
@@ -25,6 +30,10 @@ class MyApp extends StatelessWidget {
         '/loginpage': (BuildContext context) => LoginScreen(),
         '/signup_page': (BuildContext context) => SignUpScreen(),
         '/tuition_page': (BuildContext context) => TuitionScreen(),
+        '/diy_store':(BuildContext context) => DIYStoreScreen(),
+        '/skills_for_future':(BuildContext context) => SkillsForFuture(),
+        '/career_cart':(BuildContext context) => CareerCartScreen(),
+        '/calendar':(BuildContext context) => CalendarScreen(),
       },
     );
   }

@@ -56,7 +56,7 @@ class TestChoiceScreen extends StatelessWidget {
                                   new Icon(
                                     TestIcons.objective,
                                     size: 64,
-                                    color: Colors.blue,
+                                    color: Color(0xFF2C6DFD),
                                   ),
                                   SizedBox(
                                     width: 0.0,
@@ -66,7 +66,7 @@ class TestChoiceScreen extends StatelessWidget {
                           new Text(
                             'Objective',
                             style: new TextStyle(
-                              color: Colors.blue,
+                              color: Color(0xFF2C6DFD),
                               fontSize: 16.1,
                             ),
                             textAlign: TextAlign.center,
@@ -131,7 +131,7 @@ class TestChoiceScreen extends StatelessWidget {
                                   new Icon(
                                     TestIcons.descriptive,
                                     size: 64,
-                                    color: Colors.blue,
+                                    color: Color(0xFF2C6DFD),
                                   ),
                                   SizedBox(
                                     width: 0.0,
@@ -141,7 +141,7 @@ class TestChoiceScreen extends StatelessWidget {
                           new Text(
                             'Descriptive',
                             style: new TextStyle(
-                              color: Colors.blue,
+                              color: Color(0xFF2C6DFD),
                               fontSize: 16.1,
                             ),
                             textAlign: TextAlign.center,

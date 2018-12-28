@@ -78,9 +78,9 @@ class _DescriptiveQuestionState extends State<DescriptiveQuestion> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Text('Solution',style: TextStyle(color: Colors.blue),),
+                                  Text('Solution',style: TextStyle(color: Color(0xFF2C6DFD)),),
                                   IconButton(
-                                    icon: Icon(Icons.arrow_drop_down, color: Colors.blue,),
+                                    icon: Icon(Icons.expand_more, color: Color(0xFF2C6DFD),),
                                     onPressed: () {
                                       if (this._bodyHeight == 0.0) {
                                         setState(() {
