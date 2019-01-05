@@ -72,7 +72,7 @@ class _DescriptiveQuestionState extends State<DescriptiveQuestion> {
                         Row(
                           children: <Widget>[
                             IconButton(
-                              icon: Icon(Icons.arrow_back),
+                              icon: Icon(Icons.arrow_back), onPressed: () {},
                             ),
                             Expanded(
                               child: Row(
@@ -97,7 +97,7 @@ class _DescriptiveQuestionState extends State<DescriptiveQuestion> {
                               ),
                             ),
                             IconButton(
-                              icon: Icon(Icons.arrow_forward),
+                              icon: Icon(Icons.arrow_forward), onPressed: () {},
                             )
                           ],
                         ),

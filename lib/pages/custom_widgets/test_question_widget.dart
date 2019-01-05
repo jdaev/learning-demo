@@ -187,7 +187,7 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
                         Row(
                           children: <Widget>[
                             IconButton(
-                              icon: Icon(Icons.arrow_back),
+                              icon: Icon(Icons.arrow_back), onPressed: () {},
                             ),
                             Expanded(
                               child: Row(
@@ -212,7 +212,7 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
                               ),
                             ),
                             IconButton(
-                              icon: Icon(Icons.arrow_forward),
+                              icon: Icon(Icons.arrow_forward), onPressed: () {},
                             )
                           ],
                         ),

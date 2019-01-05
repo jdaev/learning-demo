@@ -39,9 +39,9 @@ class TutionButton extends StatelessWidget {
             ),
             boxShadow: <BoxShadow>[
               new BoxShadow(
-                color: Colors.black12,
+                color: Color(0x40000000),
                 blurRadius: 10.0,
-                offset: new Offset(0.0, 10.0),
+                offset: new Offset(0.0, 2.0),
               ),
             ],
           ),
