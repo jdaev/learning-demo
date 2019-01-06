@@ -4,6 +4,7 @@ import 'package:edapt/pages/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
@@ -14,19 +15,20 @@ class _LoginScreenState extends State<LoginScreen> {
   String smsCode;
   bool exists;
   String verificationId;
+  SharedPreferences prefs;
   bool isLoggedIn;
   @override
   void initState() {
     isLoggedIn = false;
     FirebaseAuth.instance.currentUser().then((user) => user != null
         ? setState(() {
-          print(user.phoneNumber);
+            print(user.phoneNumber);
             phoneNo = user.phoneNumber;
             isLoggedIn = true;
             verifyExistence();
           })
         : print('no user logged in'));
-        
+
     super.initState();
     // new Future.delayed(const Duration(seconds: 2));
   }
@@ -67,6 +69,15 @@ class _LoginScreenState extends State<LoginScreen> {
         .limit(1)
         .getDocuments();
     final List<DocumentSnapshot> documents = result.documents;
+    prefs.setString(
+        "username",
+        result.documents[0]['firstName'] +
+            '' +
+            result.documents[0]['lastName']);
+    prefs.setString("phone", phoneNo);
+    prefs.setString("standard", result.documents[0]['standard']);
+    prefs.setString("syllabus", result.documents[0]['syllabus']);
+
     setState(() {
       if (documents.length == 1) {
         Navigator.pop(context);
