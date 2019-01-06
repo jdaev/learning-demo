@@ -2,6 +2,7 @@ import 'package:edapt/pages/calendar_screen.dart';
 import 'package:edapt/pages/career_cart_screen.dart';
 import 'package:edapt/pages/course_into_page.dart';
 import 'package:edapt/pages/diy_store.dart';
+import 'package:edapt/pages/home_temp.dart';
 import 'package:edapt/pages/skills_for_future.dart';
 import 'package:edapt/pages/tuition.dart';
 import 'package:edapt/services/authenticator.dart';
@@ -26,9 +27,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         primaryColor: Color(0xFF2C6DFD),
       ),
-      home: CourseIntroScreen(),//Authenticator().handleAuth(),
+      home: LoginScreen(),//Authenticator().handleAuth(),
       routes: <String, WidgetBuilder> {
-        '/homepage': (BuildContext context) => Home(),
+        '/homepage': (BuildContext context) => HomeTemp(),
         '/loginpage': (BuildContext context) => LoginScreen(),
         '/signup_page': (BuildContext context) => SignUpScreen(),
         '/tuition_page': (BuildContext context) => TuitionScreen(),

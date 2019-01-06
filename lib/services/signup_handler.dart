@@ -1,3 +1,4 @@
+import 'package:edapt/pages/home_temp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class Verifier {
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           print('jello');
           if (snapshot.hasData) {
-            return new Home();
+            return new HomeTemp();
           } else {
             return new SignUpScreen(phoneNumber: phone,);
           }

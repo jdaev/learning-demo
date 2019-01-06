@@ -1,18 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   final String phoneNumber;
 
   const SignUpScreen({Key key, this.phoneNumber}) : super(key: key);
+
+  @override
+  SignUpScreenState createState() {
+    return new SignUpScreenState();
+  }
+}
+
+class SignUpScreenState extends State<SignUpScreen> {
+  String firstName;
+  String lastName;
+  String dob;
+  String _standard;
+  String syllabus;
   @override
   Widget build(BuildContext context) {
-    String firstName;
-    String lastName;
-    String dob;
-    String standard;
-    String syllabus;
-
     return Container(
       child: Scaffold(
         appBar: AppBar(),
@@ -25,7 +32,9 @@ class SignUpScreen extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(labelText: 'First Name'),
                     onChanged: (value) {
-                      firstName = value;
+                      setState(() {
+                        firstName = value;
+                      });
                     },
                   ),
                 ),
@@ -34,7 +43,9 @@ class SignUpScreen extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(labelText: 'Last Name'),
                     onChanged: (value) {
-                      lastName = value;
+                      setState(() {
+                        lastName = value;
+                      });
                     },
                   ),
                 ),
@@ -44,7 +55,9 @@ class SignUpScreen extends StatelessWidget {
                     decoration: InputDecoration(
                         labelText: 'Date Of Birth', hintText: 'DD-MM-YYYY'),
                     onChanged: (value) {
-                      dob = value;
+                      setState(() {
+                        dob = value;
+                      });
                     },
                   ),
                 ),
@@ -52,6 +65,13 @@ class SignUpScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: DropdownButton(
                     hint: Text('Grade'),
+                    value: _standard,
+                    onChanged: (String value) {
+                      _standard = value;
+                      setState(() {
+                        _standard = value;
+                      });
+                    },
                     items: <String>[
                       '8th Standard',
                       '9th Standard',
@@ -64,9 +84,6 @@ class SignUpScreen extends StatelessWidget {
                         child: new Text(value),
                       );
                     }).toList(),
-                    onChanged: (value) {
-                      standard = value;
-                    },
                     isExpanded: true,
                   ),
                 ),
@@ -81,11 +98,16 @@ class SignUpScreen extends StatelessWidget {
                     ].map((String value) {
                       return new DropdownMenuItem<String>(
                         value: value,
-                        child: new Text(value),
+                        child: Text(value),
                       );
                     }).toList(),
-                    onChanged: (value) {
-                      syllabus = value;
+                    value: syllabus,
+                    onChanged: (String newValue) {
+                      setState(() {
+                        print(newValue);
+                        print(widget.phoneNumber);
+                        syllabus = newValue;
+                      });
                     },
                     isExpanded: true,
                   ),
@@ -117,13 +139,15 @@ class SignUpScreen extends StatelessWidget {
                         Firestore.instance.collection('users').add({
                           'firstName': firstName,
                           'lastName': lastName,
-                          'phone': phoneNumber,
+                          'dob': dob,
+                          'phone': widget.phoneNumber,
                           'syllabus': syllabus,
-                          'standard': standard,
-                        }).then((onValue){
+                          'standard': _standard,
+                        }).then((onValue) {
                           Navigator.of(context).pop();
-                          Navigator.of(context).pushReplacementNamed('/homepage');
-                        }).catchError((onError){
+                          Navigator.of(context)
+                              .pushReplacementNamed('/homepage');
+                        }).catchError((onError) {
                           print(onError);
                         });
                       },

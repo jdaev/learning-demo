@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:edapt/pages/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -13,6 +14,22 @@ class _LoginScreenState extends State<LoginScreen> {
   String smsCode;
   bool exists;
   String verificationId;
+  bool isLoggedIn;
+  @override
+  void initState() {
+    isLoggedIn = false;
+    FirebaseAuth.instance.currentUser().then((user) => user != null
+        ? setState(() {
+          print(user.phoneNumber);
+            phoneNo = user.phoneNumber;
+            isLoggedIn = true;
+            verifyExistence();
+          })
+        : print('no user logged in'));
+        
+    super.initState();
+    // new Future.delayed(const Duration(seconds: 2));
+  }
 
   Future<void> verifyPhone() async {
     final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
@@ -52,9 +69,16 @@ class _LoginScreenState extends State<LoginScreen> {
     final List<DocumentSnapshot> documents = result.documents;
     setState(() {
       if (documents.length == 1) {
+        Navigator.pop(context);
         Navigator.pushNamed(context, '/homepage');
       } else {
-        Navigator.pushNamed(context, '/signup_page');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => SignUpScreen(
+                    phoneNumber: phoneNo,
+                  )),
+        );
       }
     });
   }
