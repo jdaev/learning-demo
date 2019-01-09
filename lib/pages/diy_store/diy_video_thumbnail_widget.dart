@@ -1,5 +1,4 @@
-import 'package:edapt/pages/diy_video_screen.dart';
-import 'package:edapt/pages/tution_topic_video_screen.dart';
+import 'package:edapt/pages/diy_store/diy_video_screen.dart';
 import 'package:flutter/material.dart';
 
 class DIYThumbnail extends StatelessWidget {

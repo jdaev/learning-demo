@@ -1,4 +1,4 @@
-import 'package:edapt/pages/custom_widgets/diy_video_thumbnail_widget.dart';
+import 'package:edapt/pages/diy_store/diy_video_thumbnail_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutube/flutube.dart';
 

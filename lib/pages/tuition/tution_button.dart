@@ -1,6 +1,6 @@
 
+import 'package:edapt/pages/tuition/tution_detail.dart';
 import 'package:flutter/material.dart';
-import 'package:edapt/pages/tution_detail.dart';
 
 class TutionButton extends StatelessWidget {
   const TutionButton(

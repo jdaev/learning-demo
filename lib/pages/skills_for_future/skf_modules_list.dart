@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edapt/pages/module_text_screen.dart';
-import 'package:edapt/pages/module_video_screen.dart';
+import 'package:edapt/pages/skills_for_future/module_text_screen.dart';
+import 'package:edapt/pages/skills_for_future/module_video_screen.dart';
 import 'package:flutter/material.dart';
 
 class SkFModules extends StatefulWidget {

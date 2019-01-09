@@ -1,18 +1,18 @@
 import 'package:edapt/pages/calendar_screen.dart';
 import 'package:edapt/pages/career_cart_screen.dart';
-import 'package:edapt/pages/course_into_page.dart';
-import 'package:edapt/pages/diy_store.dart';
+import 'package:edapt/pages/skills_for_future/course_into_page.dart';
+import 'package:edapt/pages/diy_store/diy_store.dart';
 import 'package:edapt/pages/home_temp.dart';
-import 'package:edapt/pages/skills_for_future.dart';
-import 'package:edapt/pages/skillsforfuturelist.dart';
-import 'package:edapt/pages/tuition.dart';
+import 'package:edapt/pages/skills_for_future/skills_for_future.dart';
+import 'package:edapt/pages/skills_for_future/skillsforfuturelist.dart';
+import 'package:edapt/pages/tuition/tuition.dart';
 import 'package:edapt/services/authenticator.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
 import 'package:edapt/pages/login.dart';
 import 'package:edapt/pages/sign_up.dart';
-import 'package:edapt/pages/tuition.dart';
-import 'package:edapt/pages/tution_topic_video_screen.dart';
+import 'package:edapt/pages/tuition/tuition.dart';
+import 'package:edapt/pages/tuition/tution_topic_video_screen.dart';
 
 
 void main() => runApp(MyApp());

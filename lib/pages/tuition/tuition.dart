@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:edapt/my_flutter_app_icons.dart';
-import 'custom_widgets/tution_button.dart';
+import 'package:edapt/pages/tuition/tution_button.dart';
+import 'package:flutter/material.dart';
 
 class TuitionScreen extends StatelessWidget {
   @override

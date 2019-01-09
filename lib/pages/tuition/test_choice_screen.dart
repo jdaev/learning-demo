@@ -1,8 +1,7 @@
-import 'package:edapt/pages/custom_widgets/objective_question_widget.dart';
-import 'package:edapt/pages/custom_widgets/test_question_widget.dart';
-import 'package:edapt/pages/descriptive_question_widget.dart';
-import 'package:flutter/material.dart';
+import 'package:edapt/pages/tuition/descriptive_question_widget.dart';
+import 'package:edapt/pages/tuition/test_question_widget.dart';
 import 'package:edapt/test_icons_icons.dart';
+import 'package:flutter/material.dart';
 
 class TestChoiceScreen extends StatelessWidget {
   final List objectiveQuestions;

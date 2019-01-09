@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edapt/pages/custom_widgets/tution_button.dart';
-import 'package:edapt/pages/previous_questions_screen.dart';
-import 'package:edapt/pages/test_choice_screen.dart';
-import 'package:edapt/pages/tution_topic_video_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:edapt/pages/tuition/previous_questions_screen.dart';
+import 'package:edapt/pages/tuition/test_choice_screen.dart';
+import 'package:edapt/pages/tuition/tution_button.dart';
+import 'package:edapt/pages/tuition/tution_topic_video_screen.dart';
 import 'package:edapt/tuition_detail_icons.dart';
+import 'package:flutter/material.dart';
 
 class TuitionDetail extends StatefulWidget {
   final String subject;

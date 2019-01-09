@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edapt/pages/course_into_page.dart';
-import 'package:edapt/pages/skf_modules_list.dart';
+import 'package:edapt/pages/skills_for_future/course_into_page.dart';
 import 'package:flutter/material.dart';
 
 class SkFList extends StatefulWidget {

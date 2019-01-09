@@ -1,4 +1,4 @@
-import 'package:edapt/pages/course_enroll_screen.dart';
+import 'package:edapt/pages/skills_for_future/course_enroll_screen.dart';
 import 'package:flutter/material.dart';
 
 class SkillsForFuture extends StatelessWidget {

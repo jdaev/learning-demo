@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edapt/pages/skf_modules_list.dart';
+import 'package:edapt/pages/skills_for_future/skf_modules_list.dart';
 import 'package:flutter/material.dart';
 
 class CourseIntroScreen extends StatefulWidget {

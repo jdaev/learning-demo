@@ -1,4 +1,4 @@
-import 'package:edapt/pages/custom_widgets/objective_question_widget.dart';
+import 'package:edapt/pages/skills_for_future/objective_question_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutube/flutube.dart';
 
