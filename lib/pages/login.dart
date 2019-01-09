@@ -15,7 +15,6 @@ class _LoginScreenState extends State<LoginScreen> {
   String smsCode;
   bool exists;
   String verificationId;
-  SharedPreferences prefs;
   bool isLoggedIn;
   @override
   void initState() {
@@ -69,10 +68,11 @@ class _LoginScreenState extends State<LoginScreen> {
         .limit(1)
         .getDocuments();
     final List<DocumentSnapshot> documents = result.documents;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(
-        "username",
+        'username',
         result.documents[0]['firstName'] +
-            '' +
+            ' ' +
             result.documents[0]['lastName']);
     prefs.setString("phone", phoneNo);
     prefs.setString("standard", result.documents[0]['standard']);
@@ -80,8 +80,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
     setState(() {
       if (documents.length == 1) {
-        Navigator.pop(context);
-        Navigator.pushNamed(context, '/homepage');
+        //Navigator.pop(context);
+        Navigator.pushReplacementNamed(context, '/homepage');
       } else {
         Navigator.push(
           context,
@@ -135,6 +135,8 @@ class _LoginScreenState extends State<LoginScreen> {
       print(e);
     });
   }
+
+
 
   @override
   Widget build(BuildContext context) {

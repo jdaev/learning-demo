@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ObjectiveTestQuestion extends StatefulWidget {
+class ObjectiveQuestion extends StatefulWidget {
   final List questions;
 
-  const ObjectiveTestQuestion({Key key, this.questions}) : super(key: key);
-  _ObjectiveTestQuestionState createState() => _ObjectiveTestQuestionState();
+  const ObjectiveQuestion({Key key, this.questions}) : super(key: key);
+  _ObjectiveQuestionState createState() => _ObjectiveQuestionState();
 }
 
-class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
+class _ObjectiveQuestionState extends State<ObjectiveQuestion> {
   double _bodyHeight = 0.0;
   int _radioValue = -1;
   int correctScore = 0;
@@ -36,16 +36,16 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
 
   String _returnCorrectAnswer() {
     String correct;
-    if (widget.questions[index]['correctAnswer'] ==
+    if (widget.questions[index]['correct'] ==
         widget.questions[index]['answerA']) {
       correct = widget.questions[index]['answerA'];
-    } else if (widget.questions[index]['correctAnswer'] ==
+    } else if (widget.questions[index]['correct'] ==
         widget.questions[index]['answerB']) {
       correct = widget.questions[index]['answerB'];
-    } else if (widget.questions[index]['correctAnswer'] ==
+    } else if (widget.questions[index]['correct'] ==
         widget.questions[index]['answerC']) {
       correct = widget.questions[index]['answerC'];
-    } else if (widget.questions[index]['correctAnswer'] ==
+    } else if (widget.questions[index]['correct'] ==
         widget.questions[index]['answerD']) {
       correct = widget.questions[index]['answerD'];
     } else {
@@ -59,7 +59,7 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
     return Scaffold(
       appBar: new AppBar(
         elevation: 8.0,
-        title: Text('Objective Test'),
+        title: Text('Test'),
       ),
       body: Center(
         child: Container(
@@ -103,8 +103,8 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
                                     width: 16.0,
                                   ),
                                   Expanded(
-                                      child: Text(widget.questions[index]
-                                          ['answerA'])),
+                                      child: Text(
+                                          widget.questions[index]['answerA'])),
                                   Radio(
                                     value: 0,
                                     groupValue: _radioValue,
@@ -119,8 +119,8 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
                                     width: 16.0,
                                   ),
                                   Expanded(
-                                      child: Text(widget.questions[index]
-                                          ['answerB'])),
+                                      child: Text(
+                                          widget.questions[index]['answerB'])),
                                   Radio(
                                     value: 1,
                                     groupValue: _radioValue,
@@ -135,8 +135,8 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
                                     width: 16.0,
                                   ),
                                   Expanded(
-                                      child: Text(widget.questions[index]
-                                          ['answerC'])),
+                                      child: Text(
+                                          widget.questions[index]['answerC'])),
                                   Radio(
                                     value: 2,
                                     groupValue: _radioValue,
@@ -151,8 +151,8 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
                                     width: 16.0,
                                   ),
                                   Expanded(
-                                      child: Text(widget.questions[index]
-                                          ['answerD'])),
+                                      child: Text(
+                                          widget.questions[index]['answerD'])),
                                   Radio(
                                     value: 3,
                                     groupValue: _radioValue,
@@ -237,11 +237,13 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
                                     Row(
                                       children: <Widget>[
                                         Text(
-                                          widget.questions[index]['correctAnswer'],
+                                          widget.questions[index]['correct'],
                                           style: TextStyle(
                                               color: Color(0xFF2C6DFD)),
                                         ),
-                                        
+                                        SizedBox(
+                                          width: 16,
+                                        ),
                                       ],
                                     ),
                                     SizedBox(

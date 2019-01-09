@@ -1,9 +1,14 @@
+import 'package:edapt/pages/custom_widgets/objective_question_widget.dart';
 import 'package:edapt/pages/custom_widgets/test_question_widget.dart';
 import 'package:edapt/pages/descriptive_question_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:edapt/test_icons_icons.dart';
 
 class TestChoiceScreen extends StatelessWidget {
+  final List objectiveQuestions;
+  final List descriptiveQuestions;
+
+  const TestChoiceScreen({Key key, this.objectiveQuestions, this.descriptiveQuestions}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -85,15 +90,7 @@ class TestChoiceScreen extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => ObjectiveTestQuestion(
-                                  questionNumber: 1,
-                                  question:
-                                      'How much wood could a wood chuck chuck if a wood chuck could chuck wood ?',
-                                      answerA: 'Nitwit',
-                                      answerB: 'Blubber',
-                                      answerC: 'Oddment',
-                                      answerD: 'Tweak',
-                                      answerDetail: 'About as much as the airspeed velocity of an unladen swallow',
-                                      correctAnswer: 'a',
+                                  questions: objectiveQuestions,
                                 )),
                       );
                     },
@@ -160,10 +157,7 @@ class TestChoiceScreen extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => DescriptiveQuestion(
-                              questionNumber: 1,
-                              question: 'Which is the latest rover to land on Mars?',
-                              answerDetail: 'Insight',
-                              marks: 1,
+                              questions: descriptiveQuestions,
                             )),
                       );
                     },

@@ -4,6 +4,7 @@ import 'package:edapt/pages/course_into_page.dart';
 import 'package:edapt/pages/diy_store.dart';
 import 'package:edapt/pages/home_temp.dart';
 import 'package:edapt/pages/skills_for_future.dart';
+import 'package:edapt/pages/skillsforfuturelist.dart';
 import 'package:edapt/pages/tuition.dart';
 import 'package:edapt/services/authenticator.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         '/signup_page': (BuildContext context) => SignUpScreen(),
         '/tuition_page': (BuildContext context) => TuitionScreen(),
         '/diy_store':(BuildContext context) => DIYStoreScreen(),
-        '/skills_for_future':(BuildContext context) => SkillsForFuture(),
+        '/skills_for_future':(BuildContext context) => SkFList(),
         '/career_cart':(BuildContext context) => CareerCartScreen(),
         '/calendar':(BuildContext context) => CalendarScreen(),
       },
