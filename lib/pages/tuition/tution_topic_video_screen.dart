@@ -26,8 +26,11 @@ class TopicVideoScreen extends StatefulWidget {
 }
 
 class TopicVideoScreenState extends State<TopicVideoScreen> {
+  
   @override
   Widget build(BuildContext context) {
+    String videoLink = widget.videoLink;
+    String videoSource = widget.source;
     return Container(
       child: Scaffold(
         appBar: AppBar(
@@ -37,11 +40,10 @@ class TopicVideoScreenState extends State<TopicVideoScreen> {
           children: <Widget>[
             Container(
               child: FluTube(
-                widget.videoLink,
+                videoLink,
                 autoInitialize: true,
                 showThumb: false,
                 autoPlay: false,
-                
                 aspectRatio: 16 / 9,
                 onVideoStart: () {},
                 onVideoEnd: () {},
@@ -70,6 +72,24 @@ class TopicVideoScreenState extends State<TopicVideoScreen> {
                   Text(
                     widget.description,
                   ),
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  Text('Video Source',
+                      style: TextStyle(
+                          color: Color(0x8A000000),
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold)),
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  Text(
+                    videoSource,
+                  ),
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                     child: SizedBox(
@@ -80,14 +100,46 @@ class TopicVideoScreenState extends State<TopicVideoScreen> {
                       ),
                     ),
                   ),
-                  
+                  _secondVideoButton(),
                 ],
               ),
             ),
           ],
         ),
-        
       ),
     );
   }
+
+_secondVideoButton() {
+   if(widget.videoLink2.length>2){
+     String buttonText='Next Video';
+     IconData buttonIcon = Icons.arrow_forward;
+     return OutlineButton(
+       child: Row(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         children: <Widget>[
+           Text(buttonText,style: TextStyle(fontSize: 16),),
+           Icon(buttonIcon),
+
+         ],
+       ),
+       onPressed: () {
+         Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => TopicVideoScreen(
+                        description: widget.description,
+                        source: widget.source2,
+                        videoTitle: widget.videoTitle,
+                        videoLink: widget.videoLink2,
+                        
+                      )),
+            );
+       },
+     );
+   }
+   else{
+     return Container();
+   }
+ }
 }

@@ -33,7 +33,7 @@ class _TuitionDetailState extends State<TuitionDetail> {
             stream: Firestore.instance
                 .collection('fl_content')
                 .where('standard', isEqualTo: '9th')
-                .where('subject', isEqualTo: 'physics')
+                .where('subject', isEqualTo: widget.subject.toLowerCase())
                 .where('syllabus', isEqualTo: 'ksb')
                 .snapshots(),
             builder: (context, snapshot) {

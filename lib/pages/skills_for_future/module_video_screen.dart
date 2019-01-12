@@ -15,12 +15,19 @@ class ModuleVideo extends StatefulWidget {
 }
 
 class _ModuleVideoState extends State<ModuleVideo> {
+  final _tabs = <Widget>[
+    Tab(text: 'Watch',),
+    Tab(text: 'Read',),
+    Tab(text: 'Test',),
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
+
         appBar: AppBar(
           title: Text(widget.title),
+          //bottom: TabBar(tabs: _tabs,),
         ),
         body: Column(
           children: <Widget>[
