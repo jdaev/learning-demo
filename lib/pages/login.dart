@@ -69,6 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
         .getDocuments();
     final List<DocumentSnapshot> documents = result.documents;
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (documents.isNotEmpty){
     prefs.setString(
         'username',
         result.documents[0]['firstName'] +
@@ -77,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
     prefs.setString("phone", phoneNo);
     prefs.setString("standard", result.documents[0]['standard']);
     prefs.setString("syllabus", result.documents[0]['syllabus']);
-
+    }
     setState(() {
       if (documents.length == 1) {
         //Navigator.pop(context);
@@ -128,6 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   signIn() {
+    
     FirebaseAuth.instance
         .signInWithPhoneNumber(verificationId: verificationId, smsCode: smsCode)
         .then((user) {})

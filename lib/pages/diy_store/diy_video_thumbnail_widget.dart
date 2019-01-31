@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 class DIYThumbnail extends StatelessWidget {
   final String title;
   final String imagePath;
+  final String steps;
+  final String items;
+  final String source;
+  final String videoLink;
+  final String description;
 
-  const DIYThumbnail({Key key, this.title, this.imagePath}) : super(key: key);
+  const DIYThumbnail({Key key, this.title, this.imagePath, this.steps, this.items, this.source, this.videoLink, this.description}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +38,7 @@ class DIYThumbnail extends StatelessWidget {
                   Expanded(
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
+                      child: Image.network(
                         imagePath,
                         fit: BoxFit.cover,
                       ),
@@ -45,7 +50,7 @@ class DIYThumbnail extends StatelessWidget {
                       title,
                       style: new TextStyle(
                         color: Color(0xFF000000),
-                        fontSize: 12,
+                        fontSize: 16,
                       ),
                       textAlign: TextAlign.start,
                       overflow: TextOverflow.ellipsis,
@@ -64,7 +69,15 @@ class DIYThumbnail extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DIYVideoScreen(),
+                  builder: (context) => DIYVideoScreen(
+                    description: description,
+                    items: items,
+                    name: title,
+                    source: source,
+                    steps: steps,
+                    videoLink: videoLink,
+
+                  ),
                 ),
               );
             },

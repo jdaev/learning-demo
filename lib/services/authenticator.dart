@@ -1,4 +1,5 @@
 import 'package:edapt/home.dart';
+import 'package:edapt/pages/dash/dashboard.dart';
 import 'package:edapt/pages/home_temp.dart';
 import 'package:edapt/pages/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,7 +12,7 @@ class Authenticator {
       stream: FirebaseAuth.instance.onAuthStateChanged,
       builder: (BuildContext context, snapshot) {
         if (snapshot.hasData){
-          return HomeTemp();
+          return Dash();
         }
         return LoginScreen();
       },

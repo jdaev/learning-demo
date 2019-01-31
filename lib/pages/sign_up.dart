@@ -104,8 +104,6 @@ class SignUpScreenState extends State<SignUpScreen> {
                     value: syllabus,
                     onChanged: (String newValue) {
                       setState(() {
-                        print(newValue);
-                        print(widget.phoneNumber);
                         syllabus = newValue;
                       });
                     },
@@ -136,6 +134,34 @@ class SignUpScreenState extends State<SignUpScreen> {
                       ),
                       color: Color(0xFF2C6DFD),
                       onPressed: () {
+                        switch (syllabus) {
+                          case 'Kerala State Board':
+                            syllabus = 'KSB';
+                            break;
+                          case 'CBSE':
+                            syllabus = 'CBSE';
+                            break;
+                          case 'ICSE':
+                            syllabus = 'ICSE';
+                            break;
+                        }
+                        switch (_standard) {
+                          case '8th Standard':
+                            _standard = '8';
+                            break;
+                          case '9th Standard':
+                            _standard = '9';
+                            break;
+                          case '10th Standard':
+                            _standard = '10';
+                            break;
+                          case '11th Standard':
+                            _standard = '11';
+                            break;
+                          case '12th Standard':
+                            _standard = '12';
+                            break;
+                        }
                         Firestore.instance.collection('users').add({
                           'firstName': firstName,
                           'lastName': lastName,

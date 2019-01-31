@@ -1,4 +1,3 @@
-import 'package:edapt/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:edapt/pages/home_screen.dart';
 import 'package:edapt/pages/account.dart';
@@ -18,7 +17,6 @@ class _HomeState extends State<Home> {
     PausedScreen(),
     LibraryScreen(),
     NotificationsScreen(),
-    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

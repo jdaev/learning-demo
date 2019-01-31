@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:edapt/pages/skills_for_future/module_activity_screen.dart';
 import 'package:edapt/pages/skills_for_future/module_text_screen.dart';
 import 'package:edapt/pages/skills_for_future/module_video_screen.dart';
 import 'package:flutter/material.dart';
@@ -73,8 +74,9 @@ class _SkFModulesState extends State<SkFModules> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => SkFModules(
-                                              courseID: document.documentID,
+                                        builder: (context) => ModuleActivity(
+                                              content: document['content'],
+                                              title: document['title'],
                                             )),
                                   );
                                   break;

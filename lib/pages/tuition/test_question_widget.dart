@@ -247,10 +247,6 @@ class _ObjectiveTestQuestionState extends State<ObjectiveTestQuestion> {
                                     SizedBox(
                                       height: 16,
                                     ),
-                                    //  Text(
-                                    //    widget.answerDetail,
-                                    //    style: TextStyle(fontSize: 16.1),
-                                    //  )
                                   ],
                                 ),
                               ),

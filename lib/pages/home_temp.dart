@@ -9,20 +9,7 @@ class HomeTemp extends StatelessWidget {
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
     final double itemWidth = size.width / 2;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Edapt'),
-        elevation: 8.0,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(FontAwesomeIcons.user),
-            onPressed: () {
-              
-            },
-          )
-        ],
-      ),
-      body: new GridView.count(
+    return GridView.count(
         crossAxisCount: 2,
         padding: EdgeInsets.all(16.0),
         crossAxisSpacing: 16.0,
@@ -61,7 +48,7 @@ class HomeTemp extends StatelessWidget {
             route: '/diy_store',
           ),
         ],
-      ),
+      
     );
   }
 }
