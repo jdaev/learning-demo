@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: <Widget>[
         Stack(
           overflow: Overflow.visible,

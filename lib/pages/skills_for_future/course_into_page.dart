@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:edapt/pages/skills_for_future/modules_list.dart';
 import 'package:edapt/pages/skills_for_future/skf_modules_list.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class CourseIntroScreenState extends State<CourseIntroScreen> {
 
     return StreamBuilder(
         stream: Firestore.instance
-            .collection('courses')
+            .collection('fl_content')
             .document(widget.docID)
             .snapshots(),
         builder:
@@ -30,8 +31,6 @@ class CourseIntroScreenState extends State<CourseIntroScreen> {
               return new Text('Loading...');
             default:
               var dataMap = snapshot.data.data;
-              List<String> objectives = dataMap['objectives'].cast<String>();
-              List<String> curriculum = dataMap['curriculum'].cast<String>();
               return new Scaffold(
                 appBar: AppBar(
                   title: Text('Course Info'),
@@ -55,7 +54,7 @@ class CourseIntroScreenState extends State<CourseIntroScreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          dataMap['title'],
+                          snapshot.data.data['courseName'],
                           style:
                               TextStyle(color: Color(0xFF2C6DFD), fontSize: 24),
                         ),
@@ -71,39 +70,11 @@ class CourseIntroScreenState extends State<CourseIntroScreen> {
                                 child: Column(
                                   //shrinkWrap: true,
                                   children: <Widget>[
-                                    Text(dataMap['about']),
-                                    Text('Objectives\n'),
-                                    Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          16, 0, 0, 0),
-                                      child: ListView.builder(
-                                        shrinkWrap: true,
-                                        physics: NeverScrollableScrollPhysics(),
-                                        itemCount: objectives.length,
-                                        itemBuilder:
-                                            (BuildContext context, int index) =>
-                                                Text(objectives[index]),
-                                      ),
-                                    )
+                                    Text(dataMap['courseDescription']),
                                   ],
                                 ),
                               ),
                             ]),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-                        child: ExpansionTile(
-                          title: Text('Curriculum'),
-                          children: <Widget>[
-                            ListView.builder(
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: curriculum.length,
-                              itemBuilder: (BuildContext context, int index) =>
-                                  Text(curriculum[index]),
-                            ),
-                          ],
-                        ),
                       ),
                       Align(
                         alignment: Alignment.bottomCenter,
@@ -119,9 +90,9 @@ class CourseIntroScreenState extends State<CourseIntroScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => SkFModules(
-                                        courseID: widget.docID,
-                                      ),
+                                  builder: (context) => ModulesList(
+                                    modules: dataMap['modules'],
+                                  )
                                 ),
                               );
                             },

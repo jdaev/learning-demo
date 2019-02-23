@@ -116,9 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (user != null) {
                       verifyExistence();
                     } else {
-                      Navigator.of(context).pop();
                       signIn();
-                      verifyExistence();
                     }
                   });
                 },
@@ -135,6 +133,14 @@ class _LoginScreenState extends State<LoginScreen> {
         .then((user) {})
         .catchError((e) {
       print(e);
+      if(e!=null){
+        Navigator.of(context).pop();
+      }
+      else{
+        Navigator.of(context).pop();
+        verifyExistence();
+      }
+
     });
   }
 

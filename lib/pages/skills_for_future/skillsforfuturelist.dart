@@ -14,7 +14,10 @@ class _SkFListState extends State<SkFList> {
           title: Text('Courses'),
         ),
         body: StreamBuilder(
-            stream: Firestore.instance.collection('courses').snapshots(),
+            stream: Firestore.instance
+                .collection('fl_content')
+                .where('_fl_meta_.schema', isEqualTo: 'skillsCourses')
+                .snapshots(),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError)
@@ -39,11 +42,11 @@ class _SkFListState extends State<SkFList> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => CourseIntroScreen(
-                                        docID:  document.documentID,
+                                        docID: document.documentID,
                                       )),
                             );
                           },
-                          title: new Text(document['title']),
+                          title: new Text(document['courseName']),
                         ),
                       );
                     }).toList(),
