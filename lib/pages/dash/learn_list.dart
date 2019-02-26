@@ -10,11 +10,11 @@ class LearnList extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16,16,0,0),
-              child: Text('Tuition',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
-            ),
-            _returnTuitionList(),
+          //  Padding(
+          //    padding: const EdgeInsets.fromLTRB(16,16,0,0),
+          //    child: Text('Tuition',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+          //  ),
+          //  _returnTuitionList(),
           ]),
     );
   }

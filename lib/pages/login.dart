@@ -13,12 +13,14 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   String phoneNo;
   String smsCode;
+  Widget bodyWidget;
   bool exists;
   String verificationId;
   bool isLoggedIn;
   @override
   void initState() {
     isLoggedIn = false;
+    bodyWidget = loadingScreen();
     FirebaseAuth.instance.currentUser().then((user) => user != null
         ? setState(() {
             print(user.phoneNumber);
@@ -26,7 +28,9 @@ class _LoginScreenState extends State<LoginScreen> {
             isLoggedIn = true;
             verifyExistence();
           })
-        : print('no user logged in'));
+        : setState(() {
+            bodyWidget = loginBox();
+          }));
 
     super.initState();
     // new Future.delayed(const Duration(seconds: 2));
@@ -69,15 +73,15 @@ class _LoginScreenState extends State<LoginScreen> {
         .getDocuments();
     final List<DocumentSnapshot> documents = result.documents;
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    if (documents.isNotEmpty){
-    prefs.setString(
-        'username',
-        result.documents[0]['firstName'] +
-            ' ' +
-            result.documents[0]['lastName']);
-    prefs.setString("phone", phoneNo);
-    prefs.setString("standard", result.documents[0]['standard']);
-    prefs.setString("syllabus", result.documents[0]['syllabus']);
+    if (documents.isNotEmpty) {
+      prefs.setString(
+          'username',
+          result.documents[0]['firstName'] +
+              ' ' +
+              result.documents[0]['lastName']);
+      prefs.setString("phone", phoneNo);
+      prefs.setString("standard", result.documents[0]['standard']);
+      prefs.setString("syllabus", result.documents[0]['syllabus']);
     }
     setState(() {
       if (documents.length == 1) {
@@ -112,13 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
               new FlatButton(
                 child: Text('Done'),
                 onPressed: () {
-                  FirebaseAuth.instance.currentUser().then((user) {
-                    if (user != null) {
-                      verifyExistence();
-                    } else {
-                      signIn();
-                    }
-                  });
+                  signIn();
                 },
               )
             ],
@@ -127,89 +125,111 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   signIn() {
-    
     FirebaseAuth.instance
         .signInWithPhoneNumber(verificationId: verificationId, smsCode: smsCode)
-        .then((user) {})
-        .catchError((e) {
-      print(e);
-      if(e!=null){
+        .then((user) {
+      if (user != null) {
         Navigator.of(context).pop();
-      }
-      else{
-        Navigator.of(context).pop();
+        setState(() {
+          bodyWidget =loadingScreen();
+        });
         verifyExistence();
       }
-
+    }).catchError((e) {
+      print(e);
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomPadding: true,
-      body: Container(
-          decoration: new BoxDecoration(color: Color(0xFF2C6DFD)),
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Center(
-                  child: Text(
-                    'Edapt',
-                    style: TextStyle(
-                        color: Colors.white,
-                        decoration: TextDecoration.none,
-                        fontSize: 48),
-                  ),
+    return Scaffold(resizeToAvoidBottomPadding: true, body: bodyWidget);
+  }
+
+  Widget loginBox() {
+    return Container(
+        decoration: new BoxDecoration(color: Color(0xFF2C6DFD)),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Center(
+                child: Text(
+                  'Edapt',
+                  style: TextStyle(
+                      color: Colors.white,
+                      decoration: TextDecoration.none,
+                      fontSize: 48),
                 ),
               ),
-              Stack(
-                children: <Widget>[
-                  Card(
-                    elevation: 8.0,
-                    margin: EdgeInsets.fromLTRB(16, 16, 16, 100),
-                    child: SizedBox(
-                      height: 200,
-                      child: Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: TextField(
-                              decoration: InputDecoration(
-                                  icon: Icon(Icons.phone_android),
-                                  labelText: 'Mobile Number'),
-                              onChanged: (value) => this.phoneNo = value,
-                            ),
+            ),
+            Stack(
+              children: <Widget>[
+                Card(
+                  elevation: 8.0,
+                  margin: EdgeInsets.fromLTRB(16, 16, 16, 100),
+                  child: SizedBox(
+                    height: 200,
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                icon: Icon(Icons.phone_android),
+                                labelText: 'Mobile Number'),
+                            onChanged: (value) => this.phoneNo = value,
                           ),
-                        ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: (MediaQuery.of(context).size.width / 2 - 32 + 4),
+                  top: 189,
+                  child: SizedBox(
+                    height: 56,
+                    width: 56,
+                    child: FloatingActionButton(
+                      backgroundColor: Colors.white,
+                      elevation: 8.0,
+                      onPressed: () {
+                        verifyPhone();
+                      },
+                      child: Icon(
+                        Icons.arrow_forward,
+                        color: Color(0xFF2C6DFD),
                       ),
                     ),
                   ),
-                  Positioned(
-                    left: (MediaQuery.of(context).size.width / 2 - 32 + 4),
-                    top: 189,
-                    child: SizedBox(
-                      height: 56,
-                      width: 56,
-                      child: FloatingActionButton(
-                        backgroundColor: Colors.white,
-                        elevation: 8.0,
-                        onPressed: () {
-                          verifyPhone();
-                        },
-                        child: Icon(
-                          Icons.arrow_forward,
-                          color: Color(0xFF2C6DFD),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              )
-            ],
-          )),
+                )
+              ],
+            )
+          ],
+        ));
+  }
+
+  Widget loadingScreen() {
+    return Container(
+      color: Color(0xFF2C6DFD),
+      child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(width: 120, child: Image.asset('assets/logo.png')),
+            SizedBox(
+              height: 8,
+            ),
+            SizedBox(
+                width: 128,
+                child: LinearProgressIndicator(
+                  backgroundColor: Colors.white,
+                  valueColor:
+                      new AlwaysStoppedAnimation<Color>(Color(0xFF2C6DFD)),
+                )),
+          ],
+        ),
+      ),
     );
   }
 }

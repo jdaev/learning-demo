@@ -59,6 +59,7 @@ flutter:
     - assets/ExistingCareers.png
     - assets/ExpiringCareers.png
     - assets/dummyImage1.jpg
+    - assets/logo.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

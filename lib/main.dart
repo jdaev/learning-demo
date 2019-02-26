@@ -13,8 +13,6 @@ import 'package:flutter/services.dart';
 import 'home.dart';
 import 'package:edapt/pages/login.dart';
 import 'package:edapt/pages/sign_up.dart';
-import 'package:edapt/pages/tuition/tuition.dart';
-import 'package:edapt/pages/tuition/tution_topic_video_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(

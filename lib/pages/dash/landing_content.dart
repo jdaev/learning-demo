@@ -18,13 +18,7 @@ class _LandingContentState extends State<LandingContent> {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          new RoundButton(
-            label: 'Tuition',
-            icon: FontAwesomeIcons.book,
-            startColor: 0xFFF9D184,
-            endColor: 0xFFEF4A4B,
-            route: '/tuition_page',
-          ),
+          
           new RoundButton(
             label: 'Skills for Future',
             icon: FontAwesomeIcons.hourglass,
