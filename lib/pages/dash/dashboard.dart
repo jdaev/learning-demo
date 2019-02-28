@@ -14,10 +14,12 @@ class _DashState extends State<Dash> {
   var _appBarTitle = 'Edapt';
   bool _appBarVisible = false;
   int _currentPage = 1;
+  bool _blueBack = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: _getAppBar(),
+        backgroundColor: _blueBack ? Color(0xFF2C6DFD) : Colors.white,
         body: Container(
           child: _getPage(),
         ),
@@ -33,16 +35,19 @@ class _DashState extends State<Dash> {
               _currentPage = position;
               switch (_currentPage) {
                 case 0:
-                  _appBarVisible=true;
-                  _appBarTitle='Edapt';
+                  _appBarVisible = true;
+                  _appBarTitle = 'Edapt';
+                  _blueBack = false;
                   break;
                 case 1:
-                  _appBarVisible=false;
-                  _appBarTitle='Learn';
+                  _appBarVisible = false;
+                  _blueBack = true;
+                  _appBarTitle = 'Learn';
                   break;
                 case 2:
-                  _appBarVisible=true;
-                  _appBarTitle='Profile';
+                  _appBarVisible = true;
+                  _appBarTitle = 'Profile';
+                  _blueBack = false;
                   break;
               }
             });

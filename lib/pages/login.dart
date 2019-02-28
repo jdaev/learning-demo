@@ -131,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (user != null) {
         Navigator.of(context).pop();
         setState(() {
-          bodyWidget =loadingScreen();
+          bodyWidget = loadingScreen();
         });
         verifyExistence();
       }
@@ -152,13 +152,8 @@ class _LoginScreenState extends State<LoginScreen> {
           children: <Widget>[
             Expanded(
               child: Center(
-                child: Text(
-                  'Edapt',
-                  style: TextStyle(
-                      color: Colors.white,
-                      decoration: TextDecoration.none,
-                      fontSize: 48),
-                ),
+                child:
+                    SizedBox(width: 256, child: Image.asset('assets/logo.png')),
               ),
             ),
             Stack(
@@ -167,41 +162,36 @@ class _LoginScreenState extends State<LoginScreen> {
                   elevation: 8.0,
                   margin: EdgeInsets.fromLTRB(16, 16, 16, 100),
                   child: SizedBox(
-                    height: 200,
+                    //height: 200,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
+                        
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: TextField(
                             decoration: InputDecoration(
+                                prefixText: '+',
+                                hintText: 'XX XXXXXXXXXX',
                                 icon: Icon(Icons.phone_android),
                                 labelText: 'Mobile Number'),
-                            onChanged: (value) => this.phoneNo = value,
+                            keyboardType: TextInputType.numberWithOptions(),
+                            onChanged: (value) => this.phoneNo = '+' + value,
                           ),
                         ),
+                        FlatButton(
+                          child: Text('LOG IN',
+                              style: TextStyle(
+                                  color: Color(0xFF2C6DFD), fontSize: 16)),
+                          onPressed: () {
+                            verifyPhone();
+                          },
+                        )
                       ],
                     ),
                   ),
                 ),
-                Positioned(
-                  left: (MediaQuery.of(context).size.width / 2 - 32 + 4),
-                  top: 189,
-                  child: SizedBox(
-                    height: 56,
-                    width: 56,
-                    child: FloatingActionButton(
-                      backgroundColor: Colors.white,
-                      elevation: 8.0,
-                      onPressed: () {
-                        verifyPhone();
-                      },
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: Color(0xFF2C6DFD),
-                      ),
-                    ),
-                  ),
-                )
+                
               ],
             )
           ],

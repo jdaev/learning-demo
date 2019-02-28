@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edapt/pages/skills_for_future/course_into_page.dart';
 import 'package:flutter/material.dart';
-
+import 'dart:math' as math;
 class SkFList extends StatefulWidget {
   _SkFListState createState() => _SkFListState();
 }
@@ -24,12 +24,21 @@ class _SkFListState extends State<SkFList> {
                 return new Text('Error: ${snapshot.error}');
               switch (snapshot.connectionState) {
                 case ConnectionState.waiting:
-                  return new Text('Loading data...');
+                  return Center(
+                child: new SizedBox(
+                    width: 128,
+                    child: LinearProgressIndicator(
+                      backgroundColor: Colors.white,
+                      valueColor:
+                          new AlwaysStoppedAnimation<Color>(Color(0xFF2C6DFD)),
+                    )),
+              );
                 default:
                   return new ListView(
                     padding: EdgeInsets.all(16),
                     children: snapshot.data.documents
                         .map((DocumentSnapshot document) {
+                          print(document['bannerImageLink']);
                       return Card(
                         elevation: 8.0,
                         shape: RoundedRectangleBorder(
@@ -46,6 +55,7 @@ class _SkFListState extends State<SkFList> {
                                       )),
                             );
                           },
+                          leading: SizedBox(width: 64,height: 64,child: Container(color: Color((math.Random().nextDouble() * 0xFFFFFF).toInt() << 0).withOpacity(1.0),)),
                           title: new Text(document['courseName']),
                         ),
                       );

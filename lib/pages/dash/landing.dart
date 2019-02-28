@@ -7,97 +7,69 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        Stack(
-          overflow: Overflow.visible,
+        Column(
           children: <Widget>[
+            Center(
+                child: Padding(
+              padding: const EdgeInsets.all(36.0),
+              child:
+                  SizedBox(width: 120, child: Image.asset('assets/logo.png')),
+            )),
             Container(
-              height: 260.0,
-              width: double.infinity,
-              color: Color(0xFF2C6DFD),
-            ),
-            Positioned(
-              bottom: 50.0,
-              right: 100.0,
-              child: Container(
-                height: 400.0,
-                width: 400.0,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(200.0),
-                    color: Colors.blue.withOpacity(0.4)),
-              ),
-            ),
-            Positioned(
-              bottom: 100.0,
-              left: 150.0,
-              child: Container(
-                  height: 300.0,
-                  width: 300.0,
+              height: 555,
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: Container(
+                  margin: EdgeInsets.all(16),
+                  height: 256,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(150.0),
-                      color: Colors.lightBlueAccent.withOpacity(0.5))),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(height: 50.0),
-                Padding(
-                  padding: EdgeInsets.only(left: 15.0),
-                  child: Text(
-                    'Welcome Back!',
-                    style: TextStyle(
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                    boxShadow: <BoxShadow>[
+                      new BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 10.0,
+                        offset: new Offset(0.0, 10.0),
+                      ),
+                    ],
                   ),
-                ),
-                SizedBox(height: 15.0),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: Text(
-                    'Lets Learn',
-                    style: TextStyle(
-                        fontSize: 23.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            
+                            children: <Widget>[
+                              Text('Welcome\n', textAlign: TextAlign.center, style: TextStyle(fontSize: 16.1)),
+                              Text(
+                                  'It seems like you haven\'t started learning any of our courses yet. \n Please feel free to look at all the content we offer below.',
+                                  textAlign: TextAlign.center, style: TextStyle(fontSize: 16.1)),
+                              Text(
+                                  '\nPrepare for the Fourth Industrial Revolution.',
+                                  textAlign: TextAlign.center, style: TextStyle(fontSize: 16.1))
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 172,
+                          child: LandingContent(),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: 25.0),
-                SizedBox(height: 10.0)
-              ],
-            ),
-            Positioned(
-              top: 150,
-              child: Container(
-                height: 172,
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
-                  child: LandingContent(),
                 ),
               ),
             ),
           ],
         ),
-        SizedBox(height: 50,),
+        SizedBox(
+          height: 50,
+        ),
         Container(
-          child: Container(
-            margin: EdgeInsets.all(16),
-            height: 256,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-              boxShadow: <BoxShadow>[
-                new BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 10.0,
-                  offset: new Offset(0.0, 10.0),
-                ),
-              ],
-            ),
-            child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('No new notifications :)')),
-          ),
           width: MediaQuery.of(context).size.width,
         ),
       ],

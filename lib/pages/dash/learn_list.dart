@@ -1,28 +1,81 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edapt/my_flutter_app_icons.dart';
+import 'package:edapt/pages/skills_for_future/course_into_page.dart';
 import 'package:edapt/pages/tuition/tution_button.dart';
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
-class LearnList extends StatelessWidget {
+class LearnList extends StatefulWidget {
+  @override
+  LearnListState createState() {
+    return new LearnListState();
+  }
+}
+
+class LearnListState extends State<LearnList> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView(
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
-          //  Padding(
-          //    padding: const EdgeInsets.fromLTRB(16,16,0,0),
-          //    child: Text('Tuition',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
-          //  ),
-          //  _returnTuitionList(),
-          ]),
-    );
+    return StreamBuilder(
+        stream: Firestore.instance
+            .collection('fl_content')
+            .where('_fl_meta_.schema', isEqualTo: 'skillsCourses')
+            .snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) return new Text('Error: ${snapshot.error}');
+          switch (snapshot.connectionState) {
+            case ConnectionState.waiting:
+              return Center(
+                child: SizedBox(
+                    width: 128,
+                    child: LinearProgressIndicator(
+                      backgroundColor: Colors.white,
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Color(0xFF2C6DFD)),
+                    )),
+              );
+            default:
+              return ListView(
+                padding: EdgeInsets.all(16),
+                children:
+                    snapshot.data.documents.map((DocumentSnapshot document) {
+                  print(document['bannerImageLink']);
+                  return Card(
+                    elevation: 8.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.all(16),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CourseIntroScreen(
+                                    docID: document.documentID,
+                                  )),
+                        );
+                      },
+                      leading: SizedBox(
+                          width: 64,
+                          height: 64,
+                          child: Container(
+                            color: Color((math.Random().nextDouble() * 0xFFFFFF)
+                                        .toInt() <<
+                                    0)
+                                .withOpacity(1.0),
+                          )),
+                      title: new Text(document['courseName']),
+                    ),
+                  );
+                }).toList(),
+              );
+          }
+        });
   }
 
-  _returnTuitionList(){
+  _returnTuitionList() {
     return SizedBox(
       height: 172,
-      
       child: ListView(
         shrinkWrap: true,
         padding: EdgeInsets.all(16),
@@ -83,4 +136,3 @@ class LearnList extends StatelessWidget {
     );
   }
 }
-  
