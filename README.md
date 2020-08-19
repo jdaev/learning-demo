@@ -1,4 +1,4 @@
-# edapt
+# learning demo
 
 A new Flutter project.
 
